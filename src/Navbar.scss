@@ -1,0 +1,20 @@
+#navbar {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  background-color: rgba(182, 182, 182, 0.822);
+}
+
+.navbar__logo {
+  margin-left: 1rem;
+  span {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+  a {
+    color: black;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+}
