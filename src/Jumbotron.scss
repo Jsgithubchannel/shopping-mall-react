@@ -5,7 +5,7 @@
   flex-direction: column;
   width: 100%;
   height: 30vh;
-  background: center / contain url(./image/shopping.jpg);
+  background: #d2c9c2;
 
   * {
     margin-bottom: 1.2rem;
@@ -24,9 +24,10 @@
   button {
     width: 100px;
     height: 50px;
+    margin-top: 1.5rem;
     border: none;
     border-radius: 10px;
-    background-color: rgb(98, 146, 236);
+    background-color: #5d341b;
     outline: none;
     cursor: pointer;
   }
