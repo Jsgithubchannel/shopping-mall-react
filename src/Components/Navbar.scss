@@ -1,20 +1,31 @@
 #navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 4rem;
   background-color: #705444;
-}
 
-.navbar__logo {
-  margin-left: 1rem;
-  span {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
+  .navbar__logo {
+    margin-left: 1rem;
+    span {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    a {
+      color: black;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-decoration: none;
+    }
   }
-  a {
-    color: black;
-    font-weight: bold;
-    font-size: 1.6rem;
-    text-decoration: none;
+
+  .navbar_menu {
+    margin-right: 1rem;
+    a {
+      margin: 0 1rem;
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
   }
 }
