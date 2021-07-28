@@ -13,24 +13,19 @@ function App() {
     <>
       <Navbar></Navbar>
 
-      <Switch>
-        <Route exact path="/">
-          <Jumbotron className="background"></Jumbotron>
-          <div className="container">
-            <div className="row">
-              {products.map((val, idx) => {
-                return <Product product={products[idx]} key={idx} />;
-              })}
-            </div>
+      <Route exact path="/">
+        <Jumbotron className="background"></Jumbotron>
+        <div className="container">
+          <div className="row">
+            {products.map((val, idx) => {
+              return <Product product={products[idx]} key={idx} />;
+            })}
           </div>
-        </Route>
-        <Route path="/detail">
-          <Detail />
-        </Route>
-        <Route path="/:id">
-          <div>새로 만든 route입니다</div>
-        </Route>
-      </Switch>
+        </div>
+      </Route>
+      <Route path="/detail/:id">
+        <Detail product={products} />
+      </Route>
     </>
   );
 }
