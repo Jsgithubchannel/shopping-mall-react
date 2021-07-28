@@ -1,7 +1,7 @@
 const data = [
   {
     id: 0,
-    title: "Spring Jumper",
+    title: "Spring Jacket",
     content: "Made in France",
     price: 22000,
     imgSrc:
