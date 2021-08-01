@@ -9,6 +9,7 @@ import Data from "./data.js";
 import Detail from "./Components/Detail";
 
 function App() {
+  const [재고, 재고변경] = useState([10, 11, 12]);
   const [products, setProudct] = useState(Data);
   return (
     <>
@@ -39,7 +40,7 @@ function App() {
         </div>
       </Route>
       <Route path="/detail/:id">
-        <Detail product={products} />
+        <Detail product={products} 재고={재고} 재고변경={재고변경} />
       </Route>
     </>
   );

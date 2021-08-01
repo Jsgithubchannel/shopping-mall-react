@@ -31,7 +31,14 @@ const Detail = (props) => {
           <h4 className="pt-5">{foundedProduct.title}</h4>
           <p>{foundedProduct.content}</p>
           <p>{foundedProduct.price}</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              props.재고변경([9, 10, 11]);
+            }}
+          >
+            주문하기
+          </button>
           <button
             onClick={() => {
               history.push("/");
@@ -42,8 +49,13 @@ const Detail = (props) => {
           </button>
         </div>
       </div>
+      <Info 재고={props.재고}></Info>
     </div>
   );
 };
+
+function Info(props) {
+  return <p>재고:{props.재고[0]}</p>;
+}
 
 export default Detail;
