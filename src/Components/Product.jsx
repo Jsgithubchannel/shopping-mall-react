@@ -1,7 +1,12 @@
 import React, { useContext } from "react";
+import StockContext from "../App";
 
 const Product = ({ product }) => {
-  // let 재고 = useContext(재고context);
+  const stock = React.useContext(StockContext);
+  if (stock === undefined) {
+    throw new Error("ERROR");
+  }
+  return stock;
   return (
     <div className="product">
       <img src={product.imgSrc} alt="cloth" />
@@ -9,7 +14,7 @@ const Product = ({ product }) => {
       <p>
         {product.content} & {product.price} WON
       </p>
-      {/* {재고} */}
+      {stock}
     </div>
   );
 };

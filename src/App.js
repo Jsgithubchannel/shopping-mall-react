@@ -9,10 +9,10 @@ import Data from "./data.js";
 import Detail from "./Components/Detail";
 import Cart from "./Components/Cart";
 
-// let 재고context = React.createContext();
+export const StockContext = React.createContext();
 
 function App() {
-  const [재고, 재고변경] = useState([10, 11, 12]);
+  const [stock, setStock] = useState([10, 11, 12]);
   const [products, setProudct] = useState(Data);
   return (
     <>
@@ -20,13 +20,13 @@ function App() {
       <Route exact path="/">
         <Jumbotron className="background"></Jumbotron>
         <div className="container">
-          {/* <재고context.Provider value={재고}> */}
-          <div className="row">
-            {products.map((val, idx) => {
-              return <Product product={products[idx]} key={idx} />;
-            })}
-          </div>
-          {/* </재고context.Provider> */}
+          <StockContext.Provider value={stock}>
+            <div className="row">
+              {products.map((val, idx) => {
+                return <Product product={products[idx]} key={idx} />;
+              })}
+            </div>
+          </StockContext.Provider>
           <button
             className="btn__more"
             onClick={() => {
@@ -48,7 +48,7 @@ function App() {
         <Cart></Cart>
       </Route>
       <Route path="/detail/:id">
-        <Detail product={products} 재고={재고} 재고변경={재고변경} />
+        <Detail product={products} 재고={stock} setStock={setStock} />
       </Route>
     </>
   );
