@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Nav } from "react-bootstrap";
+import { CSSTransition } from "react-transition-group";
+
+import "./Detail.scss";
 
 const Detail = (props) => {
   const [alert, setAlert] = useState(true);
   const [누른탭, 누른탭변경] = useState(0);
+  const [스위치, 스위치변경] = useState(false);
+
   let history = useHistory();
   let { id } = useParams();
   let foundedProduct = props.product.find((e) => {
@@ -60,23 +65,39 @@ const Detail = (props) => {
 
       <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
         <Nav.Item>
-          <Nav.Link eventKey="link-0" onClick={() => 누른탭변경(0)}>
+          <Nav.Link
+            eventKey="link-0"
+            onClick={() => {
+              스위치변경(false);
+              누른탭변경(0);
+            }}
+          >
             Active
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1" onClick={() => 누른탭변경(1)}>
+          <Nav.Link
+            eventKey="link-1"
+            onClick={() => {
+              스위치변경(false);
+              누른탭변경(1);
+            }}
+          >
             Option 2
           </Nav.Link>
         </Nav.Item>
       </Nav>
-
-      <TabContent 누른탭={누른탭} />
+      <CSSTransition in={스위치} classNames="wow" timeout={500}>
+        <TabContent 누른탭={누른탭} 스위치변경={스위치변경} />
+      </CSSTransition>
     </div>
   );
 };
 
 function TabContent(props) {
+  useEffect(() => {
+    props.스위치변경(true);
+  });
   if (props.누른탭 === 0) {
     return <div>0번째 내용입니다</div>;
   } else if (props.누른탭 === 1) {
