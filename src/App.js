@@ -7,6 +7,7 @@ import Jumbotron from "./Components/Jumbotron";
 import Product from "./Components/Product";
 import Data from "./data.js";
 import Detail from "./Components/Detail";
+import Cart from "./Components/Cart";
 
 // let 재고context = React.createContext();
 
@@ -42,6 +43,9 @@ function App() {
             더보기
           </button>
         </div>
+      </Route>
+      <Route path="/cart">
+        <Cart></Cart>
       </Route>
       <Route path="/detail/:id">
         <Detail product={products} 재고={재고} 재고변경={재고변경} />
