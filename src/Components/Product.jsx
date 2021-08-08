@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 const Product = ({ product }) => {
+  // let 재고 = useContext(재고context);
   return (
     <div className="product">
       <img src={product.imgSrc} alt="cloth" />
@@ -8,6 +9,7 @@ const Product = ({ product }) => {
       <p>
         {product.content} & {product.price} WON
       </p>
+      {/* {재고} */}
     </div>
   );
 };
