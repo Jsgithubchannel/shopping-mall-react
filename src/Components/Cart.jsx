@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Table, Alert } from "react-bootstrap";
 import { connect } from "react-redux";
 
 const Cart = (props) => {
@@ -43,13 +43,23 @@ const Cart = (props) => {
           })}
         </tbody>
       </Table>
+
+      {props.alert열렸니 ? (
+        <Alert variant={"primary"}>
+          <p>지금 구매하시면 20% 할인</p>
+          <button onClick={() => props.dispatch({ type: "alert닫기" })}>
+            닫기
+          </button>
+        </Alert>
+      ) : null}
     </div>
   );
 };
 
 function state를props화(state) {
   return {
-    state: state,
+    state: state.reducer,
+    alert열렸니: state.reducer2,
   };
 }
 export default connect(state를props화)(Cart);

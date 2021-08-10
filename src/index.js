@@ -5,7 +5,16 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
+
+const alert초기값 = true;
+
+function reducer2(state = alert초기값, 액션) {
+  if (액션.type === "alert닫기") {
+    state = false;
+  }
+  return state;
+}
 
 const 초기값 = [
   { id: 0, name: "멋진옷", quan: 2 },
@@ -29,7 +38,7 @@ function reducer(state = 초기값, 액션) {
   }
 }
 
-const store = createStore(reducer);
+const store = createStore(combineReducers({ reducer, reducer2 }));
 
 ReactDOM.render(
   <React.StrictMode>
