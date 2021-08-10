@@ -4,6 +4,7 @@ import { Nav } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 
 import "./Detail.scss";
+import { connect } from "react-redux";
 
 const Detail = (props) => {
   const [alert, setAlert] = useState(true);
@@ -47,7 +48,12 @@ const Detail = (props) => {
           <button
             className="btn btn-danger"
             onClick={() => {
-              props.재고변경([9, 10, 11]);
+              props.setStock([9, 10, 11]);
+              props.dispatch({
+                type: "항목추가",
+                payload: { id: 2, name: "새로운상품", quan: 1 },
+              });
+              history.push("/cart");
             }}
           >
             주문하기
@@ -111,4 +117,10 @@ function Info(props) {
   return <p>재고:{props.재고[0]}</p>;
 }
 
-export default Detail;
+function state를props화(state) {
+  return {
+    state: state.reducer,
+  };
+}
+
+export default connect(state를props화)(Detail);
