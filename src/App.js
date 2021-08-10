@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, createContext } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import "./App.scss";
@@ -9,7 +9,7 @@ import Data from "./data.js";
 import Detail from "./Components/Detail";
 import Cart from "./Components/Cart";
 
-export const StockContext = React.createContext();
+export const StockContext = createContext();
 
 function App() {
   const [stock, setStock] = useState([10, 11, 12]);

@@ -2,11 +2,7 @@ import React, { useContext } from "react";
 import StockContext from "../App";
 
 const Product = ({ product }) => {
-  const stock = React.useContext(StockContext);
-  if (stock === undefined) {
-    throw new Error("ERROR");
-  }
-  return stock;
+  const stock = useContext(StockContext);
   return (
     <div className="product">
       <img src={product.imgSrc} alt="cloth" />
