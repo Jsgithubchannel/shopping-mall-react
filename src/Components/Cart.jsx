@@ -14,13 +14,29 @@ const Cart = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.state.map((val) => {
+          {props.state.map((val, idx) => {
             return (
               <>
-                <tr>
+                <tr key={idx}>
                   <td>{val.id}</td>
                   <td>{val.name}</td>
                   <td>{val.quan}</td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        props.dispatch({ type: "수량증가" });
+                      }}
+                    >
+                      +
+                    </button>
+                    <button
+                      onClick={() => {
+                        props.dispatch({ type: "수량감소" });
+                      }}
+                    >
+                      -
+                    </button>
+                  </td>
                 </tr>
               </>
             );
