@@ -30,11 +30,7 @@ const Detail = (props) => {
     <div className="container">
       <div className="row">
         <div className="col-md-6">
-          <img
-            src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-            width="50%"
-            alt="outfit"
-          />
+          <img src={foundedProduct.imgSrc} width="50%" alt="outfit" />
         </div>
         <div className="col-md-6 mt-4">
           {alert === true ? (
