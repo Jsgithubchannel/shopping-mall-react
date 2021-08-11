@@ -1,8 +1,12 @@
 import React from "react";
 import { Table, Alert } from "react-bootstrap";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 
 const Cart = (props) => {
+  const state = useSelector((state) => state); //redux에 있는 모든 state
+  console.log(state.reducer);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Table responsive>
@@ -14,7 +18,7 @@ const Cart = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.state.map((val, idx) => {
+          {state.reducer.map((val, idx) => {
             return (
               <>
                 <tr key={idx}>
@@ -24,7 +28,7 @@ const Cart = (props) => {
                   <td>
                     <button
                       onClick={() => {
-                        props.dispatch({
+                        dispatch({
                           type: "수량증가",
                           payload: {
                             id: val.id,
@@ -38,7 +42,7 @@ const Cart = (props) => {
                     </button>
                     <button
                       onClick={() => {
-                        props.dispatch({
+                        dispatch({
                           type: "수량감소",
                           payload: {
                             id: val.id,
@@ -70,11 +74,11 @@ const Cart = (props) => {
   );
 };
 
-function state를props화(state) {
-  return {
-    state: state.reducer,
-    alert열렸니: state.reducer2,
-  };
-}
-export default connect(state를props화)(Cart);
-// export default Cart;
+// function state를props화(state) {
+//   return {
+//     state: state.reducer,
+//     alert열렸니: state.reducer2,
+//   };
+// }
+// export default connect(state를props화)(Cart);
+export default Cart;
