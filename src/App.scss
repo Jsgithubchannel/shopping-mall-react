@@ -1,11 +1,13 @@
-.container {
+.containers {
   width: 100%;
   height: 100%;
   margin-top: 2rem;
+  text-align: center;
 }
 
-.row {
+.rows {
   display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -17,6 +19,21 @@
   height: 100%;
 
   img {
-    width: 60%;
+    width: 70%;
+    border-radius: 10px;
   }
+
+  h4 {
+    margin-top: 1.8rem;
+  }
+  p {
+    margin-top: 0.4rem;
+    color: rgb(71, 71, 71);
+  }
+}
+
+.btn__more {
+  width: 10%;
+  margin-top: 3rem;
+  border: none;
 }

@@ -19,9 +19,9 @@ function App() {
       <Navbar></Navbar>
       <Route exact path="/">
         <Jumbotron className="background"></Jumbotron>
-        <div className="container">
+        <div className="containers">
           <StockContext.Provider value={stock}>
-            <div className="row">
+            <div className="rows">
               {products.map((val, idx) => {
                 return <Product product={products[idx]} key={idx} />;
               })}
@@ -40,7 +40,7 @@ function App() {
                 });
             }}
           >
-            더보기
+            상품 더보기
           </button>
         </div>
       </Route>
