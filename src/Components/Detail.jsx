@@ -51,7 +51,11 @@ const Detail = (props) => {
               props.setStock([9, 10, 11]);
               props.dispatch({
                 type: "항목추가",
-                payload: { id: 2, name: "새로운상품", quan: 1 },
+                payload: {
+                  id: foundedProduct.id,
+                  name: foundedProduct.title,
+                  quan: 1,
+                },
               });
               history.push("/cart");
             }}

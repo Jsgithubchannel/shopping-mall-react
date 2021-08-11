@@ -24,14 +24,28 @@ const Cart = (props) => {
                   <td>
                     <button
                       onClick={() => {
-                        props.dispatch({ type: "수량증가" });
+                        props.dispatch({
+                          type: "수량증가",
+                          payload: {
+                            id: val.id,
+                            name: val.name,
+                            quan: val.quan,
+                          },
+                        });
                       }}
                     >
                       +
                     </button>
                     <button
                       onClick={() => {
-                        props.dispatch({ type: "수량감소" });
+                        props.dispatch({
+                          type: "수량감소",
+                          payload: {
+                            id: val.id,
+                            name: val.name,
+                            quan: val.quan,
+                          },
+                        });
                       }}
                     >
                       -
