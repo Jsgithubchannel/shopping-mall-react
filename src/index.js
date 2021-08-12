@@ -17,24 +17,25 @@ function reducer2(state = alert초기값, 액션) {
 }
 
 const 초기값 = [
-  { id: 0, name: "멋진옷", quan: 2 },
-  { id: 1, name: "예쁜옷", quan: 5 },
-  { id: 2, name: "샤랄라한옷", quan: 1 },
+  { id: 3, name: "멋진옷", quan: 2 },
+  { id: 4, name: "예쁜옷", quan: 5 },
+  { id: 5, name: "샤랄라한옷", quan: 1 },
 ];
 
 function reducer(state = 초기값, 액션) {
   if (액션.type === "항목추가") {
-    let copy = [...state];
-    for (let idx in copy) {
-      console.log(액션.payload.id, idx);
-      if (액션.payload.id === parseInt(idx)) {
-        copy[액션.payload.id].quan++;
-        break;
-      } else {
-        copy.push(액션.payload);
-      }
+    let found = state.findIndex((a) => {
+      return a.id === 액션.payload.id;
+    });
+    if (found >= 0) {
+      let copy = [...state];
+      copy[found].quan++;
+      return copy;
+    } else {
+      let copy = [...state];
+      copy.push(액션.payload);
+      return copy;
     }
-    return copy;
   } else if (액션.type === "수량증가") {
     let copy = [...state];
     copy[액션.payload.id].quan++;
