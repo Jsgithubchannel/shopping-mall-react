@@ -6,7 +6,6 @@ const Navbar = () => {
   return (
     <nav id="navbar">
       <div className="navbar__logo">
-        <span>🧥</span>
         <a href="#">ShopShop</a>
       </div>
 
