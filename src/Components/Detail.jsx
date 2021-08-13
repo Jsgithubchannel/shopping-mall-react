@@ -30,10 +30,9 @@ const Detail = (props) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6">
-          <img src={foundedProduct.imgSrc} width="50%" alt="outfit" />
-        </div>
-        <div className="col-md-6 mt-4">
+        <img src={foundedProduct.imgSrc} alt="outfit" />
+
+        <div className="side__bar">
           {alert === true ? (
             <div className="alert-popup">재고가 얼마 남지 않았습니다.</div>
           ) : null}

@@ -8,3 +8,34 @@
   opacity: 1;
   transition: all 500ms;
 }
+
+.container {
+  margin-top: 2rem;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .row > * {
+    flex-shrink: inherit;
+  }
+
+  img {
+    width: 40%;
+    border-radius: 20px;
+  }
+  .side__bar {
+    margin-left: 2rem;
+    text-align: center;
+
+    input {
+      margin-bottom: 0;
+    }
+
+    * {
+      margin: 0.6rem 0.4rem;
+    }
+  }
+}
