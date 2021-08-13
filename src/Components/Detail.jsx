@@ -10,6 +10,7 @@ const Detail = (props) => {
   const [alert, setAlert] = useState(true);
   const [누른탭, 누른탭변경] = useState(0);
   const [스위치, 스위치변경] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   let history = useHistory();
   let { id } = useParams();
@@ -41,6 +42,14 @@ const Detail = (props) => {
           <h4 className="pt-5">{foundedProduct.title}</h4>
           <p>{foundedProduct.content}</p>
           <p>{foundedProduct.price}</p>
+          <div className="quan-in">
+            <input
+              type="text"
+              name="quantity"
+              placeholder="수량을 입력하세요"
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
           <button
             className="btn btn-danger"
             onClick={() => {
@@ -50,9 +59,10 @@ const Detail = (props) => {
                 payload: {
                   id: foundedProduct.id,
                   name: foundedProduct.title,
-                  quan: 1,
+                  quan: Number(quantity),
                 },
               });
+
               history.push("/cart");
             }}
           >
