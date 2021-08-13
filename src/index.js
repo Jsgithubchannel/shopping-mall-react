@@ -48,16 +48,18 @@ function reducer(state = 초기값, 액션) {
     return copy;
   } else if (액션.type === "수량증가") {
     let copy = [...state];
-    if (copy[액션.payload.id] !== "undefined") {
-      // console.log(copy[액션.payload.id]);
-      copy[액션.payload.id].quan++;
-      return copy;
-    }
+
+    copy.map((elem) =>
+      elem.id === 액션.payload.id ? { ...elem, quan: elem.quan++ } : elem
+    );
+    return copy;
   } else if (액션.type === "수량감소") {
     let copy = [...state];
-    if (copy[액션.payload.id].quan !== 0) {
-      copy[액션.payload.id].quan--;
-    }
+    copy.map((elem) =>
+      elem.id === 액션.payload.id && elem.quan !== 0
+        ? { ...elem, quan: elem.quan-- }
+        : elem
+    );
     return copy;
   } else {
     return state;

@@ -2,9 +2,18 @@ import React from "react";
 import { Table, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
-const Cart = (props) => {
+const Cart = () => {
   const state = useSelector((state) => state); //redux에 있는 모든 state
   const dispatch = useDispatch();
+
+  const getReducerDispatch = (e, val) => {
+    dispatch({
+      type: e.target.id,
+      payload: {
+        id: val.id,
+      },
+    });
+  };
 
   return (
     <div>
@@ -26,38 +35,20 @@ const Cart = (props) => {
                   <td>{val.quan}</td>
                   <td>
                     <button
-                      onClick={() => {
-                        dispatch({
-                          type: "수량증가",
-                          payload: {
-                            id: val.id,
-                          },
-                        });
-                      }}
+                      id="수량증가"
+                      onClick={(e) => getReducerDispatch(e, val)}
                     >
                       +
                     </button>
                     <button
-                      onClick={() => {
-                        dispatch({
-                          type: "수량감소",
-                          payload: {
-                            id: val.id,
-                          },
-                        });
-                      }}
+                      id="수량감소"
+                      onClick={(e) => getReducerDispatch(e, val)}
                     >
                       -
                     </button>
                     <button
-                      onClick={() => {
-                        dispatch({
-                          type: "항목삭제",
-                          payload: {
-                            id: val.id,
-                          },
-                        });
-                      }}
+                      id="항목삭제"
+                      onClick={(e) => getReducerDispatch(e, val)}
                     >
                       x
                     </button>
