@@ -42,6 +42,10 @@ function reducer(state = 초기값, 액션) {
     //   copy.push(액션.payload);
     //   return copy;
     // }
+  } else if (액션.type === "항목삭제") {
+    let copy = [...state];
+    copy = copy.filter((elem) => 액션.payload.id !== elem.id);
+    return copy;
   } else if (액션.type === "수량증가") {
     let copy = [...state];
     if (copy[액션.payload.id] !== "undefined") {

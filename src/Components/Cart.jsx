@@ -49,6 +49,18 @@ const Cart = (props) => {
                     >
                       -
                     </button>
+                    <button
+                      onClick={() => {
+                        dispatch({
+                          type: "항목삭제",
+                          payload: {
+                            id: val.id,
+                          },
+                        });
+                      }}
+                    >
+                      x
+                    </button>
                   </td>
                 </tr>
               </>
